@@ -15,6 +15,7 @@
   --bg: #f1f5f9;
   --text: #1e293b;
   --gray: #64748b;
+  --border: #e2e8f0;
 }
 
 * {
@@ -24,10 +25,11 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
 }
 
 .container {
@@ -55,7 +57,7 @@ header {
   font-size: 11px;
   text-align: center;
   padding: 6px 12px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border);
 }
 
 main {
@@ -91,11 +93,23 @@ h1 {
   color: var(--gray);
 }
 
+.sec-heading {
+  font-size: 16px;
+  font-weight: bold;
+  border-left: 4px solid var(--main);
+  padding-left: 10px;
+  margin: 26px 0 14px;
+}
+
+/* =========================================================
+   コピペ用「案件カード」共通テンプレート
+   新しい案件を追加・入れ替える際は <section class="card">〜</section> を丸ごと複製・移動してください
+   ========================================================= */
 .card {
-  border: 2px solid #e2e8f0;
+  border: 2px solid var(--border);
   border-radius: 12px;
   padding: 18px 16px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   background: #fff;
 }
 
@@ -119,17 +133,22 @@ h1 {
   background: var(--main);
 }
 
+.card-tag-sub {
+  background: #475569;
+}
+
 .card-title {
   font-size: 17px;
   font-weight: bold;
   margin-bottom: 8px;
   color: var(--text);
+  line-height: 1.4;
 }
 
 .card-desc {
   font-size: 13px;
   color: #475569;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .checklist {
@@ -167,16 +186,29 @@ h1 {
   font-weight: bold;
 }
 
+.micro-copy {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
 .btn {
   display: block;
   width: 100%;
-  padding: 14px;
+  padding: 14px 12px;
   border-radius: 8px;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   color: #fff;
+  transition: opacity 0.2s;
+}
+
+.btn:active {
+  opacity: 0.85;
 }
 
 .btn-orange {
@@ -189,6 +221,11 @@ h1 {
   box-shadow: 0 4px 10px rgba(15,118,110,0.25);
 }
 
+.btn-dark {
+  background: #334155;
+  box-shadow: 0 4px 10px rgba(51,65,85,0.2);
+}
+
 .pr-note {
   text-align: center;
   font-size: 11px;
@@ -196,17 +233,10 @@ h1 {
   margin-top: 6px;
 }
 
-.sec-heading {
-  font-size: 16px;
-  font-weight: bold;
-  border-left: 4px solid var(--main);
-  padding-left: 10px;
-  margin: 28px 0 14px;
-}
-
+/* 3つの鉄則ガイド */
 .guide-box {
   background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 16px;
   margin-bottom: 16px;
@@ -246,7 +276,7 @@ footer {
   font-size: 11px;
   color: #94a3b8;
   background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--border);
 }
 </style>
 </head>
@@ -269,69 +299,148 @@ footer {
   <span class="badge">完全無料・スマホだけでOK</span>
   <h1>今すぐ参加できる！<br>厳選お得キャンペーンまとめ</h1>
   <p class="hero-sub">
-    登録無料＆スキマ時間でポイントが貯まる<br>おすすめ案件と失敗しない参加手順をまとめました。
+    スキマ時間でコツコツお小遣いを作る<br>おすすめ案件と失敗しない参加手順をまとめました。
   </p>
 </div>
 
-<!-- メイン枠：TikTok Lite 招待キャンペーン -->
-<div class="card card-featured">
+<!-- 【枠1】イチオシ枠：TikTok Lite -->
+<section class="card card-featured">
   <span class="card-tag">🔥 一番人気・期間限定</span>
-  <div class="card-title">TikTok Lite 新規登録＆チェックインキャンペーン</div>
+  <h2 class="card-title">TikTok Lite 新規登録＆チェックインキャンペーン</h2>
   <p class="card-desc">
-    まだTikTok Liteを使ったことがない方限定！招待リンクからアプリを入れて簡単なタスクを完了するだけで、PayPayやAmazonギフト券などに交換できるポイントがもらえます。
+    今すぐ大きく狙いたい方におすすめ！招待リンクからアプリを入れて簡単なタスクを完了すると、PayPayやAmazonギフト券などに交換できるポイントがもらえます。
   </p>
 
   <div class="checklist">
     <div class="checklist-title">⚠️ ポイント取りこぼし防止チェックリスト</div>
     <ul>
       <li><strong>必ずWi-Fiをオフ</strong>（スマホのモバイル通信）にしてからリンクを開く</li>
-      <li>アプリダウンロード後、<strong>ストアの「開く」は押さず</strong>もう一度下の招待リンクから起動する</li>
+      <li>アプリDL後、<strong>ストアの「開く」は押さず</strong>もう一度下の招待リンクから起動する</li>
       <li>登録後24時間以内に報酬タブを開き、規定日数のチェックインを完了する</li>
     </ul>
   </div>
 
+  <div class="micro-copy">※Wi-Fiオフ・標準ブラウザ（Safari/Chrome）で開始</div>
   <a href="https://lite.tiktok.com/t/ZS9PDLYr3uVQc-K0fIJ/" target="_blank" rel="noopener noreferrer" class="btn btn-orange">
     ▶ 招待リンクからキャンペーンに参加する
   </a>
-</div>
+  <div class="pr-note">※招待リンクへ移動します（PR）</div>
+</section>
 
-<div class="sec-heading">あわせて登録したい定番ポイ活サイト</div>
+<h2 class="sec-heading">まずは無料で登録したい定番・アンケート案件</h2>
 
-<!-- サブ枠①：ポイントインカム（A8.netテキストリンクをボタン化） -->
-<div class="card">
+<!-- 【枠2】王道・定番枠：ポイントインカム -->
+<section class="card">
   <span class="card-tag card-tag-green">定番・無料登録</span>
-  <div class="card-title">ポイントインカム（無料会員登録）</div>
+  <h2 class="card-title">ポイントインカム（無料会員登録）</h2>
   <p class="card-desc">
-    普段のネットショッピングや無料アプリのダウンロード、アンケート回答などでコツコツお小遣いが貯まる定番ポイントサイトです。登録は完全無料で、貯まったポイントはPayPayや現金・各種ギフト券に交換できます。
+    普段のネットショッピングや無料アプリDL、案件利用などでコツコツ月2〜3万円を目指せる定番ポイントサイト。登録はずっと完全無料です。
   </p>
 
-  <a href="https://px.a8.net/svt/ejp?a8mat=4BGS10+B72IV6+5JWO+5YJRM" rel="nofollow" class="btn btn-green">ポイ活するなら【ポイントインカム】</a>
+  <div class="micro-copy">※完全無料・住所やクレカ入力は不要です</div>
+  <a href="https://px.a8.net/svt/ejp?a8mat=4BGS10+B72IV6+5JWO+5YJRM" rel="nofollow" class="btn btn-green">
+    ▶ ポイントインカムに無料で登録する
+  </a>
   <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BGS10+B72IV6+5JWO+5YJRM" alt="">
   <div class="pr-note">※公式サイトへ移動します（無料登録・PR）</div>
-</div>
+</section>
 
-<!-- ポイ活でポイントを取りこぼさない3つの鉄則 -->
-<div class="sec-heading">ポイ活でポイントを取りこぼさない3つの鉄則</div>
+<!-- 【枠3】即完了・アンケート枠：infoQ -->
+<section class="card">
+  <span class="card-tag">11/30まで報酬UP中・即完了</span>
+  <h2 class="card-title">infoQ（無料アンケートモニター）</h2>
+  <p class="card-desc">
+    GMOグループ運営・会員数80万人超のアンケートサイト。1ポイント＝1円で、Amazonギフト券は「即時交換」にも対応。スキマ時間にサクサク貯められます。
+  </p>
+
+  <div class="micro-copy">※完全無料・最短1分で登録完了</div>
+  <a href="【ここにinfoQのA8.netリンクURLを貼る】" rel="nofollow" class="btn btn-green">
+    ▶ infoQに無料で登録してみる
+  </a>
+  <img border="0" width="1" height="1" src="【ここにinfoQのA8.net計測用1px画像URLを貼る】" alt="">
+  <div class="pr-note">※公式サイトへ移動します（無料登録・PR）</div>
+</section>
+
+<!-- 【枠4】併用おすすめサブ枠：マクロミル -->
+<section class="card">
+  <span class="card-tag card-tag-sub">併用おすすめ・最大1,000P特典</span>
+  <h2 class="card-title">マクロミル（国内最大手アンケート）</h2>
+  <p class="card-desc">
+    アンケート数が業界No.1クラスで貯まりやすい定番モニター。新規登録者向けに、ハズレなしで最大1,000ポイントが当たるスクラッチキャンペーンも実施中です。
+  </p>
+
+  <div class="micro-copy">※登録後のスクラッチ＆初回アンケート1問回答まで進めるのがコツ</div>
+  <a href="【ここにマクロミルのA8.netリンクURLを貼る】" rel="nofollow" class="btn btn-green">
+    ▶ マクロミルに無料で登録してみる
+  </a>
+  <img border="0" width="1" height="1" src="【ここにマクロミルのA8.net計測用1px画像URLを貼る】" alt="">
+  <div class="pr-note">※公式サイトへ移動します（無料登録・PR）</div>
+</section>
+
+<h2 class="sec-heading">エンタメ・特別案件（用途に合わせて選択）</h2>
+
+<!-- 【枠5】エンタメ節約枠：ABEMAプレミアム -->
+<section class="card">
+  <span class="card-tag card-tag-sub">動画・アニメ・スポーツ</span>
+  <h2 class="card-title">ABEMAプレミアム（WEB登録）</h2>
+  <p class="card-desc">
+    オリジナル番組やアニメ・ドラマ・スポーツなどを見たい方に人気。登録前に必ず以下をご確認ください。
+  </p>
+
+  <div class="checklist">
+    <div class="checklist-title">⚠️ 登録時の重要注意点</div>
+    <ul>
+      <li>すでに公式アプリが入っている場合は、<strong>一度アプリを削除してから</strong>下のボタンよりお進みください</li>
+      <li>プラン選択時は<strong>「通常プラン」</strong>をお選びください（広告つきプランは対象外）</li>
+    </ul>
+  </div>
+
+  <div class="micro-copy">※Safari / Chromeなどのブラウザからお手続きください</div>
+  <a href="【ここにABEMAプレミアムのA8.netリンクURLを貼る】" rel="nofollow" class="btn btn-dark">
+    ▶ ABEMAプレミアムの詳細を見る
+  </a>
+  <img border="0" width="1" height="1" src="【ここにABEMAプレミアムのA8.net計測用1px画像URLを貼る】" alt="">
+  <div class="pr-note">※公式サイトへ移動します（PR）</div>
+</section>
+
+<!-- 【枠6】金融・カード枠：Nexus Card -->
+<section class="card">
+  <span class="card-tag card-tag-sub">デポジット型クレジットカード</span>
+  <h2 class="card-title">Nexus Card（ネクサスカード）</h2>
+  <p class="card-desc">
+    事前にデポジット（保証金）を預ける仕組みのクレジットカード。通常のクレカ審査に不安がある方や、利用枠を管理しやすいカードを探している方向けです。
+  </p>
+
+  <div class="micro-copy">※申込条件・デポジットの仕組みは公式ページをご確認ください</div>
+  <a href="【ここにNexus CardのA8.netリンクURLを貼る】" rel="nofollow" class="btn btn-dark">
+    ▶ Nexus Cardの公式ページを見る
+  </a>
+  <img border="0" width="1" height="1" src="【ここにNexus CardのA8.net計測用1px画像URLを貼る】" alt="">
+  <div class="pr-note">※公式サイトへ移動します（PR）</div>
+</section>
+
+<!-- 共通：ポイ活でポイントを取りこぼさない3つの鉄則 -->
+<h2 class="sec-heading">ポイ活でポイントを取りこぼさない3つの鉄則</h2>
 
 <div class="guide-box">
   <div class="guide-item">
     <h3>1. 申し込み時は「Wi-Fiをオフ」にする</h3>
-    <p>公共Wi-Fiや自宅の回線だと通信が途切れたり同一IPと判定されたりして、ポイント対象外になるケースがあります。スマホの4G/5G回線で手続きするのが確実です。</p>
+    <p>Wi-Fi環境や不安定な通信だと成果が正しく反映されないことがあります。スマホのモバイル通信（4G/5G）で手続きするのが基本です。</p>
   </div>
   <div class="guide-item">
     <h3>2. iPhoneは「サイト越えトラッキング」を許可する</h3>
-    <p>Safariの設定で「サイト越えトラッキングを防ぐ」がオンになっていると、経由履歴が消えて報酬が反映されない原因になります。申し込み前に設定を確認しましょう。</p>
+    <p>Safariの設定で「サイト越えトラッキングを防ぐ」がオンになっていると経由履歴が消える原因になります。申し込み前に設定をご確認ください。</p>
   </div>
   <div class="guide-item">
     <h3>3. 完了画面まで他のページへ移動しない</h3>
-    <p>リンクをタップしてから会員登録やアプリ起動が完了するまで、途中で別のブラウザを開いたり戻ったりせず一気に完了させるのがポイントです。</p>
+    <p>リンクをタップしてから登録やアプリ起動が完了するまで、途中で別のアプリやタブへ移動せず一気に完了させましょう。</p>
   </div>
 </div>
 
 <div class="note-box">
   <strong>【運営ポリシー・注意事項】</strong><br>
-  ・当サイト「ポイ活お得速報｜キャンペーン・節約まとめ」では、実際に利用条件を確認したお得なキャンペーン情報のみを掲載しています。<br>
-  ・各キャンペーンの特典内容や付与条件は予告なく変更・終了する場合があります。必ず遷移先の公式ページにて最新条件をご確認ください。
+  ・当サイト「ポイ活お得速報｜キャンペーン・節約まとめ」では、利用条件を確認したお得なキャンペーン情報のみを掲載しています。<br>
+  ・各キャンペーンの特典内容・付与条件・報酬額は予告なく変更・終了する場合があります。必ず遷移先の公式ページにて最新条件をご確認ください。
 </div>
 
 </main>
